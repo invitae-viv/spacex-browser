@@ -27,7 +27,9 @@
       "__TEST__": true,
       "__API__": "http://localhost:3002"
     },
-    "setupFiles": ["jest-localstorage-mock"]
+    "setupFiles": [
+      "jest-localstorage-mock"
+    ]
   },
   "devDependencies": {
     "autoprefixer": "^7.2.3",
@@ -79,6 +81,7 @@
     "lodash": "^4.17.4",
     "material-ui": "^1.0.0-beta.25",
     "material-ui-icons": "^1.0.0-beta.17",
+    "moment": "^2.20.1",
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
     "react-debounce-input": "^3.1.0",

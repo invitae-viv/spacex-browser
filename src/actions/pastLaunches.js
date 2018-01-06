@@ -1,18 +1,18 @@
-import { UPCOMING } from '../api'
-import { UPDATE_UPCOMING_LAUNCHES, SORT_UPCOMING_LAUNCHES } from './'
+import { PAST } from '../api'
+import { UPDATE_PAST_LAUNCHES, SORT_PAST_LAUNCHES } from './'
 
 const launchesUpdated = data => ({
-  type: UPDATE_UPCOMING_LAUNCHES,
+  type: UPDATE_PAST_LAUNCHES,
   data,
 })
 
 export const updateLaunches = () => (dispatch) => {
-  fetch(`${UPCOMING}/`)
+  fetch(`${PAST}/`)
     .then(response => response.json())
     .then(data => dispatch(launchesUpdated(data)))
 }
 
 export const sortLaunches = sortBy => ({
-  type: SORT_UPCOMING_LAUNCHES,
+  type: SORT_PAST_LAUNCHES,
   sortBy,
 })

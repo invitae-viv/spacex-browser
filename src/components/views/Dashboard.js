@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Tabs, { Tab } from 'material-ui/Tabs'
 import UpcomingLaunches from './UpcomingLaunches'
+import PastLaunches from './PastLaunches'
 
 class Dashboard extends Component {
   /**
@@ -35,6 +36,7 @@ class Dashboard extends Component {
         </Tabs>
 
         {selectedTabIdx === 0 && <UpcomingLaunches />}
+        {selectedTabIdx === 1 && <PastLaunches />}
       </div>
     )
   }

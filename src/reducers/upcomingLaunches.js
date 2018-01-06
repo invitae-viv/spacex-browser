@@ -1,22 +1,14 @@
-import PropTypes from 'prop-types'
 import { createReducer } from '../store'
-import { UPDATE_UPCOMING_LAUNCHES } from '../actions'
-
-const updateData = (state, { data }) => ({
-  ...state,
-  data,
-})
+import { UPDATE_UPCOMING_LAUNCHES, SORT_UPCOMING_LAUNCHES } from '../actions'
+import { commonLaunchShape, defaultState, updateData, sortData } from './launchCommon'
 
 const handlers = {
   [UPDATE_UPCOMING_LAUNCHES]: updateData,
+  [SORT_UPCOMING_LAUNCHES]: sortData,
 }
 
-const defaultState = {
-  data: [],
+export const upcomingLaunchesShape = {
+  ...commonLaunchShape,
 }
 
-export const launchesState = {
-  data: PropTypes.array,
-}
-
-export default createReducer(defaultState, handlers)
+export default createReducer({ ...defaultState }, handlers)
