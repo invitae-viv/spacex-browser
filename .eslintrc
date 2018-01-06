@@ -1,0 +1,52 @@
+{
+  "extends": ["airbnb"],
+  "env": {
+    "es6": true,
+    "browser": true,
+    "node": true,
+    "jest": true
+  },
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true,
+      "modules": true
+    }
+  },
+  "plugins": ["react"],
+  "globals": {
+    "__DEV__": true,
+    "__TEST__": true,
+    "__API__": true
+  },
+  "settings": {
+    "import/resolver": {
+      "webpack": {
+        "config": "webpack.dev.config.babel.js"
+      }
+    }
+  },
+  "rules": {
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [".js", ".jsx"]
+      }
+    ],
+    "semi": [2, "never"],
+    "import/extensions": [0],
+    "no-nested-ternary": [0],
+    "no-confusing-arrow": [0],
+    "function-paren-newline": ["error", "multiline"],
+    "object-curly-newline": [
+      "error",
+      {
+        "ObjectExpression": {
+          "consistent": true
+        },
+        "ObjectPattern": {
+          "multiline": true
+        }
+      }
+    ]
+  }
+}
