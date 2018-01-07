@@ -5,12 +5,14 @@ export const defaultState = {
   data: [],
   sortBy: 'launch_date_utc',
   sortDir: 'desc',
+  yearFilter: undefined,
 }
 
 export const commonLaunchShape = {
   data: PropTypes.array,
   sortBy: PropTypes.string,
   sortDir: PropTypes.oneOf(['asc', 'desc']),
+  yearFilter: PropTypes.number,
 }
 
 /*
@@ -37,21 +39,30 @@ export const gridColumns = [
   {
     id: 'launch_date_utc',
     numeric: false,
-    disablePadding: true,
     label: 'Launch Date',
     formatter: dateFormatter,
   },
   {
-    id: 'launch_year',
+    id: 'flight_number',
     numeric: true,
-    disablePadding: false,
-    label: 'Year',
+    label: 'Flight #',
+    formatter: defaultFormatter,
+  },
+  {
+    id: 'site_name',
+    numeric: false,
+    label: 'Launch Site',
+    formatter: defaultFormatter,
+  },
+  {
+    id: 'rocket_name',
+    numeric: false,
+    label: 'Rocket Name',
     formatter: defaultFormatter,
   },
   {
     id: 'launch_success',
     numeric: false,
-    disablePadding: false,
     label: 'Successful',
     formatter: boolFormatter,
   },
@@ -73,7 +84,12 @@ export const compareLaunches = (sortBy, sortDir) => (launchA, launchB) => {
 
 export const updateData = (state, { data }) => ({
   ...state,
-  data,
+  data: data.map(row => ({
+    ...row,
+    // Flatten data a bit in order to simplify column structure
+    site_name: row.launch_site.site_name,
+    rocket_name: row.rocket.rocket_name,
+  })),
 })
 
 export const sortData = (state, { sortBy }) => ({
