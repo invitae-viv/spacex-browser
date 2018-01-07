@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import PropTypes from 'prop-types'
 import moment from 'moment'
 
@@ -5,7 +6,8 @@ export const defaultState = {
   data: [],
   sortBy: 'launch_date_utc',
   sortDir: 'desc',
-  yearFilter: undefined,
+  yearFilter: -1,
+  rocketFilter: '',
 }
 
 export const commonLaunchShape = {
@@ -13,6 +15,7 @@ export const commonLaunchShape = {
   sortBy: PropTypes.string,
   sortDir: PropTypes.oneOf(['asc', 'desc']),
   yearFilter: PropTypes.number,
+  rocketFilter: PropTypes.string,
 }
 
 /*
@@ -80,6 +83,9 @@ export const compareLaunches = (sortBy, sortDir) => (launchA, launchB) => {
   return sortDir === 'desc' ? -result : result
 }
 
+export const filterRockets = rocketFilter => ({ rocket_name }) =>
+  RegExp(rocketFilter, 'i').test(rocket_name)
+
 // HANDLERS --------------------------------
 
 export const updateData = (state, { data }) => ({
@@ -96,4 +102,9 @@ export const sortData = (state, { sortBy }) => ({
   ...state,
   sortBy,
   sortDir: sortBy === state.sortBy ? invertSortDir(state.sortDir) : 'desc',
+})
+
+export const searchByRocket = (state, { rocketFilter }) => ({
+  ...state,
+  rocketFilter,
 })

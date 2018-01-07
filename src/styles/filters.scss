@@ -1,0 +1,20 @@
+.filterCont {
+  align-items: baseline;
+  h6 {
+    font-size: 1rem;
+    font-weight: normal;
+    margin-right: 20px;
+  }
+
+  section {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: baseline;
+    padding-top: 3px;
+    margin-right: 30px;
+
+    span {
+      margin-right: 5px;
+    }
+  }
+}

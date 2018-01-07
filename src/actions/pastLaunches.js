@@ -1,5 +1,8 @@
-import { PAST } from '../api'
-import { UPDATE_PAST_LAUNCHES, SORT_PAST_LAUNCHES } from './'
+/* eslint-disable camelcase */
+import { performGet, PAST } from '../api'
+import { UPDATE_PAST_LAUNCHES, SORT_PAST_LAUNCHES, FILTER_LAUNCHES_BY_ROCKET } from './'
+
+const apiGet = performGet(`${PAST}/`)
 
 const launchesUpdated = data => ({
   type: UPDATE_PAST_LAUNCHES,
@@ -7,12 +10,21 @@ const launchesUpdated = data => ({
 })
 
 export const updateLaunches = () => (dispatch) => {
-  fetch(`${PAST}/`)
-    .then(response => response.json())
-    .then(data => dispatch(launchesUpdated(data)))
+  apiGet().then(data => dispatch(launchesUpdated(data)))
 }
 
 export const sortLaunches = sortBy => ({
   type: SORT_PAST_LAUNCHES,
   sortBy,
+})
+
+export const filterByYear = launch_year => (dispatch) => {
+  // launch_year will be -1 if intent is 'ANY' -- pass empty string to api
+  apiGet({ launch_year: launch_year === -1 ? '' : launch_year }).then(data =>
+    dispatch(launchesUpdated(data)))
+}
+
+export const filterByRocket = rocketFilter => ({
+  type: FILTER_LAUNCHES_BY_ROCKET,
+  rocketFilter,
 })
