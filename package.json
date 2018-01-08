@@ -28,7 +28,12 @@
       "__API__": "http://localhost:3002"
     },
     "setupFiles": [
-      "jest-localstorage-mock"
+      "jest-localstorage-mock",
+      "./__tests__/__config__/global.js"
+    ],
+    "modulePathIgnorePatterns": [
+      "./__config__",
+      "./__mocks__"
     ]
   },
   "devDependencies": {
@@ -45,6 +50,8 @@
     "babel-register": "^6.26.0",
     "css-loader": "^0.28.7",
     "deep-freeze": "^0.0.1",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
     "eslint": "^4.14.0",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-import-resolver-webpack": "^0.8.3",
@@ -89,7 +96,6 @@
     "react-redux": "^5.0.6",
     "react-visible": "^2.0.0",
     "redux": "^3.7.2",
-    "redux-form": "^7.2.0",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.2.0"
   },

@@ -6,14 +6,6 @@ import reducers from '../reducers'
 const logger = createLogger()
 const middlewares = [thunk]
 
-export function createReducer(initialState, handlers) {
-  return function reducer(state = initialState, action) {
-    return Object.prototype.hasOwnProperty.call(handlers, action.type)
-      ? handlers[action.type](state, action)
-      : state
-  }
-}
-
 export const storeFactory = (initialState = {}, /* istanbul ignore next */ debug = __DEV__) => {
   /* eslint-disable indent */
   const store = (debug

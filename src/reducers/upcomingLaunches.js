@@ -1,4 +1,4 @@
-import { createReducer } from '../store'
+import createReducer from './utils'
 import {
   UPDATE_UPCOMING_LAUNCHES,
   SORT_UPCOMING_LAUNCHES,
@@ -22,4 +22,4 @@ export const upcomingLaunchesShape = {
   ...commonLaunchShape,
 }
 
-export default createReducer({ ...defaultState }, handlers)
+export default createReducer(defaultState, handlers)

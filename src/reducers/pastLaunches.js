@@ -1,4 +1,4 @@
-import { createReducer } from '../store'
+import createReducer from './utils'
 import { UPDATE_PAST_LAUNCHES, SORT_PAST_LAUNCHES, FILTER_LAUNCHES_BY_ROCKET } from '../actions'
 import {
   commonLaunchShape,
