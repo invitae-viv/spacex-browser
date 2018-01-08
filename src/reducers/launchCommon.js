@@ -8,6 +8,7 @@ export const defaultState = {
   sortDir: 'desc',
   yearFilter: -1,
   rocketFilter: '',
+  selectedId: -1,
 }
 
 export const commonLaunchShape = {
@@ -16,6 +17,7 @@ export const commonLaunchShape = {
   sortDir: PropTypes.oneOf(['asc', 'desc']),
   yearFilter: PropTypes.number,
   rocketFilter: PropTypes.string,
+  selectedId: PropTypes.number,
 }
 
 const defaultFormatter = val => val
@@ -28,30 +30,35 @@ export const gridColumns = [
     numeric: false,
     label: 'Launch Date',
     formatter: dateFormatter,
+    padding: 'dense',
   },
   {
     id: 'flight_number',
     numeric: true,
     label: 'Flight #',
     formatter: defaultFormatter,
+    padding: 'none',
   },
   {
     id: 'site_name',
     numeric: false,
     label: 'Launch Site',
     formatter: defaultFormatter,
+    padding: 'dense',
   },
   {
     id: 'rocket_name',
     numeric: false,
     label: 'Rocket Name',
     formatter: defaultFormatter,
+    padding: 'none',
   },
   {
     id: 'launch_success',
     numeric: false,
     label: 'Successful',
     formatter: boolFormatter,
+    padding: 'none',
   },
 ]
 
@@ -80,6 +87,7 @@ export const updateData = (state, { data }) => ({
     site_name: row.launch_site.site_name,
     rocket_name: row.rocket.rocket_name,
   })),
+  selectedId: -1,
 })
 
 export const sortData = (state, { sortBy }) => ({
@@ -92,3 +100,5 @@ export const searchByRocket = (state, { rocketFilter }) => ({
   ...state,
   rocketFilter,
 })
+
+export const selectLaunch = (state, { selectedId }) => ({ ...state, selectedId })

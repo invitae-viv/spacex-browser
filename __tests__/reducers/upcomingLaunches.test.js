@@ -10,6 +10,7 @@ describe('upcomingLaunches reducer', () => {
     sortDir: 'desc',
     yearFilter: -1,
     rocketFilter: '',
+    selectedId: -1,
   }
   deepFreeze(initialState)
 

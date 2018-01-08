@@ -1,0 +1,39 @@
+@import 'variables';
+
+.detailCont {
+  margin-left: 34px;
+  border: 2px solid red;
+  width: 100vw;
+
+  th,
+  td {
+    vertical-align: top;
+    padding: 5px 10px;
+  }
+
+  th {
+    white-space: nowrap;
+    text-align: left;
+    background-color: lighten($color-highlight, 5);
+  }
+
+  section {
+    //clear: both;
+  }
+
+  section:first {
+    float: left;
+  }
+
+  figure {
+    float: right;
+    text-align: center;
+    img {
+      max-width: 15vw;
+      max-height: 15vh;
+    }
+    figcaption {
+      font-style: oblique;
+    }
+  }
+}

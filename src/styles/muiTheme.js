@@ -13,9 +13,23 @@ export default createMuiTheme({
         marginTop: 22,
       },
     },
+    MuiTableBody: {
+      root: {
+        maxHeight: '600px !important',
+      },
+    },
     MuiTableHead: {
       root: {
         fontSize: 14,
+      },
+    },
+    MuiTableRow: {
+      root: {
+        cursor: 'pointer',
+      },
+      selected: {
+        backgroundColor: `${indigo[800]} !important`,
+        color: indigo[50],
       },
     },
     MuiToolbar: {

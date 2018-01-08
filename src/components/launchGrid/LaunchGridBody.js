@@ -8,7 +8,10 @@ import {
   filterRockets,
 } from '../../reducers/launchCommon'
 
-const LaunchGridBody = ({ launches: { data, sortBy, sortDir, rocketFilter } }) => {
+const LaunchGridBody = ({
+  selectLaunch,
+  launches: { data, sortBy, sortDir, rocketFilter, selectedId },
+}) => {
   const compare = compareLaunches(sortBy, sortDir)
   const filterer = filterRockets(rocketFilter)
 
@@ -18,9 +21,13 @@ const LaunchGridBody = ({ launches: { data, sortBy, sortDir, rocketFilter } }) =
         .filter(filterer)
         .sort(compare)
         .map((row, idx) => (
-          <TableRow key={idx}>
-            {gridColumns.map(({ id, numeric, formatter }) => (
-              <TableCell key={id} numeric={numeric}>
+          <TableRow
+            key={idx}
+            onClick={() => selectLaunch(row.flight_number)}
+            selected={row.flight_number === selectedId}
+          >
+            {gridColumns.map(({ id, numeric, padding, formatter }) => (
+              <TableCell key={id} numeric={numeric} padding={padding}>
                 {formatter(row[id])}
               </TableCell>
             ))}
@@ -32,6 +39,7 @@ const LaunchGridBody = ({ launches: { data, sortBy, sortDir, rocketFilter } }) =
 
 LaunchGridBody.propTypes = {
   launches: PropTypes.shape(commonLaunchShape).isRequired,
+  selectLaunch: PropTypes.func.isRequired,
 }
 
 export default LaunchGridBody

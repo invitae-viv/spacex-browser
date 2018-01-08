@@ -1,6 +1,11 @@
 /* eslint-disable camelcase */
 import { performGet, PAST } from '../api'
-import { UPDATE_PAST_LAUNCHES, SORT_PAST_LAUNCHES, FILTER_LAUNCHES_BY_ROCKET } from './'
+import {
+  UPDATE_PAST_LAUNCHES,
+  SORT_PAST_LAUNCHES,
+  FILTER_PAST_LAUNCHES_BY_ROCKET,
+  SELECT_PAST_LAUNCH,
+} from './'
 
 const apiGet = performGet(`${PAST}/`)
 
@@ -25,6 +30,11 @@ export const filterByYear = launch_year => (dispatch) => {
 }
 
 export const filterByRocket = rocketFilter => ({
-  type: FILTER_LAUNCHES_BY_ROCKET,
+  type: FILTER_PAST_LAUNCHES_BY_ROCKET,
   rocketFilter,
+})
+
+export const selectLaunch = selectedId => ({
+  type: SELECT_PAST_LAUNCH,
+  selectedId,
 })

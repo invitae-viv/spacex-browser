@@ -1,0 +1,10 @@
+@import 'variables';
+
+.gridCont {
+  height: calc(100vh - 270px);
+  overflow: auto;
+
+  tr:nth-child(even) {
+    background-color: $color-background;
+  }
+}

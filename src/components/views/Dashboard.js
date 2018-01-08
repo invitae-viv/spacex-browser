@@ -14,7 +14,7 @@ class Dashboard extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      selectedTabIdx: 0,
+      selectedTabIdx: 1,
     }
     this.handleChange = this.handleChange.bind(this)
   }

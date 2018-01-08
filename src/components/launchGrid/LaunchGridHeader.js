@@ -7,24 +7,24 @@ import { commonLaunchShape, gridColumns } from '../../reducers/launchCommon'
 const LaunchGridHeader = ({ launches: { sortBy, sortDir }, sortLaunches }) => (
   <TableHead>
     <TableRow>
-      {gridColumns.map(column => (
+      {gridColumns.map(({ id, numeric, padding, label }) => (
         <TableCell
-          key={column.id}
-          numeric={column.numeric}
-          padding={column.disablePadding ? 'none' : 'default'}
-          sortDirection={sortBy === column.id ? sortDir : false}
+          key={id}
+          numeric={numeric}
+          padding={padding}
+          sortDirection={sortBy === id ? sortDir : false}
         >
           <Tooltip
             title="Sort"
-            placement={column.numeric ? 'bottom-end' : 'bottom-start'}
+            placement={numeric ? 'bottom-end' : 'bottom-start'}
             enterDelay={300}
           >
             <TableSortLabel
-              active={sortBy === column.id}
+              active={sortBy === id}
               direction={sortDir}
-              onClick={() => sortLaunches(column.id)}
+              onClick={() => sortLaunches(id)}
             >
-              {column.label}
+              {label}
             </TableSortLabel>
           </Tooltip>
         </TableCell>
