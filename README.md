@@ -2,6 +2,8 @@
 
 A React based web app that utilizes the fabulous [SpaceX-API](https://github.com/r-spacex/SpaceX-API) to search and display details from past and upcoming SpaceX launch events.
 
+Live example is avalable at [https://nebiru.com/spacex-browser/](https://nebiru.com/spacex-browser/)
+
 ## Requirements
 
 * node `^8.0.0`
