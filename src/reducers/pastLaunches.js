@@ -2,6 +2,7 @@ import createReducer from './utils'
 import {
   UPDATE_PAST_LAUNCHES,
   SORT_PAST_LAUNCHES,
+  FILTER_PAST_LAUNCHES_BY_YEAR,
   FILTER_PAST_LAUNCHES_BY_ROCKET,
   SELECT_PAST_LAUNCH,
 } from '../actions'
@@ -10,6 +11,7 @@ import {
   defaultState,
   updateData,
   sortData,
+  searchByYear,
   searchByRocket,
   selectLaunch,
 } from './launchCommon'
@@ -17,6 +19,7 @@ import {
 const handlers = {
   [UPDATE_PAST_LAUNCHES]: updateData,
   [SORT_PAST_LAUNCHES]: sortData,
+  [FILTER_PAST_LAUNCHES_BY_YEAR]: searchByYear,
   [FILTER_PAST_LAUNCHES_BY_ROCKET]: searchByRocket,
   [SELECT_PAST_LAUNCH]: selectLaunch,
 }

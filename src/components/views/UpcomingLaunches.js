@@ -10,7 +10,8 @@ import * as launchActions from '../../actions/upcomingLaunches'
 
 class UpcomingLaunches extends Component {
   componentDidMount() {
-    this.props.updateLaunches()
+    const { launches: { yearFilter } } = this.props
+    this.props.filterByYear(yearFilter)
   }
 
   render() {
@@ -26,7 +27,7 @@ class UpcomingLaunches extends Component {
 }
 
 UpcomingLaunches.propTypes = {
-  updateLaunches: PropTypes.func.isRequired,
+  filterByYear: PropTypes.func.isRequired,
   launches: PropTypes.shape(commonLaunchShape).isRequired,
 }
 

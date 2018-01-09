@@ -3,6 +3,7 @@ import { performGet, UPCOMING } from '../api'
 import {
   UPDATE_UPCOMING_LAUNCHES,
   SORT_UPCOMING_LAUNCHES,
+  FILTER_UPCOMING_LAUNCHES_BY_YEAR,
   FILTER_UPCOMING_LAUNCHES_BY_ROCKET,
   SELECT_UPCOMING_LAUNCH,
 } from './'
@@ -14,19 +15,17 @@ const launchesUpdated = data => ({
   data,
 })
 
-export const updateLaunches = () => (dispatch) => {
-  apiGet().then(data => dispatch(launchesUpdated(data)))
-}
-
 export const sortLaunches = sortBy => ({
   type: SORT_UPCOMING_LAUNCHES,
   sortBy,
 })
 
-export const filterByYear = launch_year => (dispatch) => {
-  // launch_year will be -1 if intent is 'ANY' -- pass empty string to api
-  apiGet({ launch_year: launch_year === -1 ? '' : launch_year }).then(data =>
+export const filterByYear = yearFilter => (dispatch) => {
+  // yearFilter will be -1 if intent is 'ANY' -- pass empty string to api
+  apiGet({ launch_year: yearFilter === -1 ? '' : yearFilter }).then(data =>
     dispatch(launchesUpdated(data)))
+
+  dispatch({ type: FILTER_UPCOMING_LAUNCHES_BY_YEAR, yearFilter })
 }
 
 export const filterByRocket = rocketFilter => ({

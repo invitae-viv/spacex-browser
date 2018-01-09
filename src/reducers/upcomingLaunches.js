@@ -2,6 +2,7 @@ import createReducer from './utils'
 import {
   UPDATE_UPCOMING_LAUNCHES,
   SORT_UPCOMING_LAUNCHES,
+  FILTER_UPCOMING_LAUNCHES_BY_YEAR,
   FILTER_UPCOMING_LAUNCHES_BY_ROCKET,
   SELECT_UPCOMING_LAUNCH,
 } from '../actions'
@@ -10,6 +11,7 @@ import {
   defaultState,
   updateData,
   sortData,
+  searchByYear,
   searchByRocket,
   selectLaunch,
 } from './launchCommon'
@@ -17,6 +19,7 @@ import {
 const handlers = {
   [UPDATE_UPCOMING_LAUNCHES]: updateData,
   [SORT_UPCOMING_LAUNCHES]: sortData,
+  [FILTER_UPCOMING_LAUNCHES_BY_YEAR]: searchByYear,
   [FILTER_UPCOMING_LAUNCHES_BY_ROCKET]: searchByRocket,
   [SELECT_UPCOMING_LAUNCH]: selectLaunch,
 }

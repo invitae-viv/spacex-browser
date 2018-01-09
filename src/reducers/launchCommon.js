@@ -137,6 +137,11 @@ export const sortData = (state, { sortBy }) => ({
   sortDir: sortBy === state.sortBy ? invertSortDir(state.sortDir) : 'desc',
 })
 
+export const searchByYear = (state, { yearFilter }) => ({
+  ...state,
+  yearFilter,
+})
+
 export const searchByRocket = (state, { rocketFilter }) => ({
   ...state,
   rocketFilter,

@@ -5,6 +5,7 @@ import {
   UPDATE_UPCOMING_LAUNCHES,
   SORT_UPCOMING_LAUNCHES,
   SELECT_UPCOMING_LAUNCH,
+  FILTER_UPCOMING_LAUNCHES_BY_YEAR,
 } from '../../src/actions/index'
 
 describe('upcomingLaunches reducer', () => {
@@ -73,7 +74,18 @@ describe('upcomingLaunches reducer', () => {
     })
   })
 
-  it('selectLaunch should succeed', () => {
+  it('searchByYear should update yearFilter', () => {
+    const action = {
+      type: FILTER_UPCOMING_LAUNCHES_BY_YEAR,
+      yearFilter: 2004,
+    }
+    expect(reducer(initialState, action)).toEqual({
+      ...initialState,
+      yearFilter: 2004,
+    })
+  })
+
+  it('selectLaunch should update selectedId', () => {
     const action = {
       type: SELECT_UPCOMING_LAUNCH,
       selectedId: 53,
