@@ -128,7 +128,10 @@ export const updateData = (state, { data }) => ({
     site_name: row.launch_site.site_name,
     rocket_name: row.rocket.rocket_name,
   })),
-  selectedId: -1,
+  // Maintain previously selected launch, if possible.
+  selectedId: data.find(({ flight_number }) => flight_number === state.selectedId)
+    ? state.selectedId
+    : -1,
 })
 
 export const sortData = (state, { sortBy }) => ({
