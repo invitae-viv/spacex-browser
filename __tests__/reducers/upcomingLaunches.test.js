@@ -58,7 +58,7 @@ describe('upcomingLaunches reducer', () => {
     expect(reducer(state, action)).toEqual({
       ...initialState,
       data: [exampleLaunchA, exampleLaunchB],
-      sortDir: 'desc',
+      sortDir: 'asc',
       sortBy: 'site_name',
     })
 
