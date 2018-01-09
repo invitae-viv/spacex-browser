@@ -106,11 +106,20 @@ export const gridColumns = [
 const invertSortDir = dir => (dir === 'desc' ? 'asc' : 'desc')
 
 export const compareLaunches = (sortBy, sortDir) => (launchA, launchB) => {
+  const isNumeric = gridColumns.reduce(
+    (acc, { id, numeric }) => (id === sortBy ? numeric : acc),
+    false,
+  )
+
   let sortField = sortBy
+
   if (sortBy === 'launch_date_utc') {
     sortField = 'launch_date_unix'
   }
-  const result = launchA[sortField] - launchB[sortField]
+
+  const result = isNumeric
+    ? launchA[sortField] - launchB[sortField]
+    : String(launchA[sortField]).localeCompare(launchB[sortField])
 
   return sortDir === 'desc' ? -result : result
 }
@@ -137,7 +146,7 @@ export const updateData = (state, { data }) => ({
 export const sortData = (state, { sortBy }) => ({
   ...state,
   sortBy,
-  sortDir: sortBy === state.sortBy ? invertSortDir(state.sortDir) : 'desc',
+  sortDir: sortBy === state.sortBy ? invertSortDir(state.sortDir) : 'asc',
 })
 
 export const searchByYear = (state, { yearFilter }) => ({
