@@ -2,8 +2,12 @@
 
 .detailCont {
   margin-left: 34px;
-  border: 2px solid red;
   width: 100vw;
+
+  h3 {
+    font-size: 1.17rem;
+    margin-top: 0;
+  }
 
   th,
   td {
@@ -14,15 +18,12 @@
   th {
     white-space: nowrap;
     text-align: left;
-    background-color: lighten($color-highlight, 5);
+    background-color: $color-background;
+    border-radius: 4px;
   }
 
   section {
-    //clear: both;
-  }
-
-  section:first {
-    float: left;
+    margin-bottom: 22px;
   }
 
   figure {
@@ -34,6 +35,18 @@
     }
     figcaption {
       font-style: oblique;
+      font-size: 0.8125rem;
     }
+  }
+}
+
+.mediaCont {
+  display: flex;
+  flex-flow: row wrap;
+  section:first-of-type {
+    width: 350px;
+  }
+  section {
+    min-width: 150px;
   }
 }

@@ -1993,6 +1993,10 @@ decamelize@^1.0.0, decamelize@^1.1.1, decamelize@^1.1.2:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/decamelize/-/decamelize-1.2.0.tgz#f6534d15148269b20352e7bee26f501f9a191290"
 
+decode-uri-component@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/decode-uri-component/-/decode-uri-component-0.2.0.tgz#eb3913333458775cb84cd1a1fae062106bb87545"
+
 deep-diff@^0.3.5:
   version "0.3.8"
   resolved "https://registry.yarnpkg.com/deep-diff/-/deep-diff-0.3.8.tgz#c01de63efb0eec9798801d40c7e0dae25b582c84"
@@ -4349,6 +4353,10 @@ load-json-file@^2.0.0:
     pify "^2.0.0"
     strip-bom "^3.0.0"
 
+load-script@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/load-script/-/load-script-1.0.0.tgz#0491939e0bee5643ee494a7e3da3d2bac70c6ca4"
+
 loader-runner@^2.3.0:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/loader-runner/-/loader-runner-2.3.0.tgz#f482aea82d543e07921700d5a46ef26fdac6b8a2"
@@ -5955,7 +5963,7 @@ promise@^7.1.1:
   dependencies:
     asap "~2.0.3"
 
-prop-types@^15.5.10, prop-types@^15.5.4, prop-types@^15.5.8, prop-types@^15.6.0:
+prop-types@^15.5.10, prop-types@^15.5.3, prop-types@^15.5.4, prop-types@^15.5.8, prop-types@^15.6.0:
   version "15.6.0"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.6.0.tgz#ceaf083022fc46b4a35f69e13ef75aed0d639856"
   dependencies:
@@ -6020,6 +6028,14 @@ query-string@^4.1.0:
   version "4.3.4"
   resolved "https://registry.yarnpkg.com/query-string/-/query-string-4.3.4.tgz#bbb693b9ca915c232515b228b1a02b609043dbeb"
   dependencies:
+    object-assign "^4.1.0"
+    strict-uri-encode "^1.0.0"
+
+query-string@^5.0.1:
+  version "5.0.1"
+  resolved "https://registry.yarnpkg.com/query-string/-/query-string-5.0.1.tgz#6e2b86fe0e08aef682ecbe86e85834765402bd88"
+  dependencies:
+    decode-uri-component "^0.2.0"
     object-assign "^4.1.0"
     strict-uri-encode "^1.0.0"
 
@@ -6211,6 +6227,14 @@ react-transition-group@^2.2.1:
 react-visible@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/react-visible/-/react-visible-2.0.0.tgz#42c49d690c4d8f81358b046f10c64d72f4a9b6e3"
+
+react-youtube@^7.5.0:
+  version "7.5.0"
+  resolved "https://registry.yarnpkg.com/react-youtube/-/react-youtube-7.5.0.tgz#3175a9c4e078164cf103ce4bc780a9e4ca4f1f94"
+  dependencies:
+    lodash "^4.17.4"
+    prop-types "^15.5.3"
+    youtube-player "^5.4.0"
 
 react@^16.2.0:
   version "16.2.0"
@@ -6822,6 +6846,10 @@ sinon@^4.1.3:
     nise "^1.2.0"
     supports-color "^4.4.0"
     type-detect "^4.0.5"
+
+sister@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/sister/-/sister-3.0.0.tgz#88eb57047cb283da1e070b1a7cae8212f3bcb2db"
 
 slash@^1.0.0:
   version "1.0.0"
@@ -7846,3 +7874,11 @@ yargs@~3.10.0:
     cliui "^2.1.0"
     decamelize "^1.0.0"
     window-size "0.1.0"
+
+youtube-player@^5.4.0:
+  version "5.4.0"
+  resolved "https://registry.yarnpkg.com/youtube-player/-/youtube-player-5.4.0.tgz#9e3fc8a1fcae6a6cc89140e7add7c7cd86299d6e"
+  dependencies:
+    debug "^2.6.6"
+    load-script "^1.0.0"
+    sister "^3.0.0"

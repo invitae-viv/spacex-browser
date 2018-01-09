@@ -20,6 +20,47 @@ export const commonLaunchShape = {
   selectedId: PropTypes.number,
 }
 
+const launchSiteShape = {
+  site_id: PropTypes.string,
+  site_name: PropTypes.string,
+  site_name_long: PropTypes.string,
+}
+
+const rocketShape = {
+  rocket_id: PropTypes.string,
+  rocket_name: PropTypes.string,
+  rocket_type: PropTypes.string,
+}
+
+const linksShape = {
+  mission_patch: PropTypes.string,
+  article_link: PropTypes.string,
+  presskit: PropTypes.string,
+  reddit_campaign: PropTypes.string,
+  reddit_launch: PropTypes.string,
+  reddit_media: PropTypes.string,
+  reddit_recovery: PropTypes.string,
+  video_link: PropTypes.string,
+}
+
+const reuseShape = {
+  capsule: PropTypes.bool,
+  core: PropTypes.bool,
+  fairings: PropTypes.bool,
+  side_core1: PropTypes.bool,
+  side_core2: PropTypes.bool,
+}
+
+export const launchShape = {
+  flight_number: PropTypes.number,
+  launch_date_utc: PropTypes.string,
+  launch_site: PropTypes.shape(launchSiteShape),
+  launch_success: PropTypes.bool,
+  rocket: PropTypes.shape(rocketShape),
+  links: PropTypes.shape(linksShape),
+  resuse: PropTypes.shape(reuseShape),
+}
+
 const defaultFormatter = val => val
 const dateFormatter = val => moment(val).format('L')
 const boolFormatter = val => (val === null ? '--' : val ? 'Yes' : 'No')

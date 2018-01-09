@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Tabs, { Tab } from 'material-ui/Tabs'
 import UpcomingLaunches from './UpcomingLaunches'
 import PastLaunches from './PastLaunches'
+import SpacexLogo from '../../assets/SpacexLogo.svg'
 
 class Dashboard extends Component {
   /**
@@ -14,7 +15,7 @@ class Dashboard extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      selectedTabIdx: 1,
+      selectedTabIdx: 0,
     }
     this.handleChange = this.handleChange.bind(this)
   }
@@ -28,15 +29,18 @@ class Dashboard extends Component {
 
     return (
       <div>
-        <h3>SpaceX Launch Browser</h3>
+        <header>
+          <SpacexLogo />
+          <h2>Launch Browser</h2>
+        </header>
+
         <Tabs indicatorColor="primary" value={selectedTabIdx} onChange={this.handleChange}>
-          <Tab label="Upcoming Launches" />
           <Tab label="Past Launches" />
-          <Tab label="Vehicles" />
+          <Tab label="Upcoming Launches" />
         </Tabs>
 
-        {selectedTabIdx === 0 && <UpcomingLaunches />}
-        {selectedTabIdx === 1 && <PastLaunches />}
+        {selectedTabIdx === 0 && <PastLaunches />}
+        {selectedTabIdx === 1 && <UpcomingLaunches />}
       </div>
     )
   }

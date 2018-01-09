@@ -1,7 +1,11 @@
 import deepFreeze from 'deep-freeze'
 import reducer from '../../src/reducers/upcomingLaunches'
 import { exampleLaunchA, exampleLaunchB, flattenedA, flattenedB } from '../__mocks__/launches'
-import { UPDATE_UPCOMING_LAUNCHES, SORT_UPCOMING_LAUNCHES } from '../../src/actions/index'
+import {
+  UPDATE_UPCOMING_LAUNCHES,
+  SORT_UPCOMING_LAUNCHES,
+  SELECT_UPCOMING_LAUNCH,
+} from '../../src/actions/index'
 
 describe('upcomingLaunches reducer', () => {
   const initialState = {
@@ -66,6 +70,17 @@ describe('upcomingLaunches reducer', () => {
       data: [exampleLaunchA, exampleLaunchB],
       sortDir: 'desc',
       sortBy: 'site_name',
+    })
+  })
+
+  it('selectLaunch should succeed', () => {
+    const action = {
+      type: SELECT_UPCOMING_LAUNCH,
+      selectedId: 53,
+    }
+    expect(reducer(initialState, action)).toEqual({
+      ...initialState,
+      selectedId: 53,
     })
   })
 })
